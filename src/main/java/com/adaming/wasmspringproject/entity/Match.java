@@ -2,6 +2,7 @@ package com.adaming.wasmspringproject.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "t_match")
@@ -10,7 +11,8 @@ public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-/*    private Player player1;*/
+    @ManyToMany
+    private List<Player> playerListMatch;
     private float duration;
     private String score;
 
@@ -24,14 +26,16 @@ public class Match {
     public void setId(Long id) {
         this.id = id;
     }
+/*
 
-/*    public Player getPlayer1() {
-        return player1;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setPlayer1(Player player1) {
-        this.player1 = player1;
-    }*/
+    public void setPlayer1(Player player) {
+        this.player = player;
+    }
+*/
 
     public float getDuration() {
         return duration;

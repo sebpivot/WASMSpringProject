@@ -10,15 +10,33 @@ public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private String surface;
     private int yearCreation;
     private String country;
     private String city;
-/*    @ManyToMany
-    private List<Player> playerListTournament;*/
+    @ManyToMany
+    private List<Player> playerListTournament;
     private String linkWebsite;
 
     public Tournament() {
+    }
+
+
+    public Tournament(String name, String surface, int yearCreation, String country, String city) {
+        this.name = name;
+        this.surface = surface;
+        this.yearCreation = yearCreation;
+        this.country = country;
+        this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -61,13 +79,13 @@ public class Tournament {
         this.city = city;
     }
 
-/*    public List<Player> getPlayerListTournament() {
+    public List<Player> getPlayerListTournament() {
         return playerListTournament;
     }
 
     public void setPlayerListTournament(List<Player> playerListTournament) {
         this.playerListTournament = playerListTournament;
-    }*/
+    }
 
     public String getLinkWebsite() {
         return linkWebsite;

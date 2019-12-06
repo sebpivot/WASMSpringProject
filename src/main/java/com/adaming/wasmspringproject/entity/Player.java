@@ -18,14 +18,33 @@ public class Player {
     private int nbrVictory;
     private int nbrLoss;
     private int ranking;
-/*    @ManyToMany
-    private List<Tournament> tournamentsWon;*/
+    @ManyToMany
+    private List<Tournament> tournamentsWon;
     private boolean handPreference;
 
 
     public Player() {
     }
 
+    public Player(String playerFirstName, String playerLastName, String nationality, int age, int nbrVictory, int nbrLoss, int ranking, boolean handPreference) {
+        this.playerFirstName = playerFirstName;
+        this.playerLastName = playerLastName;
+        this.nationality = nationality;
+        this.age = age;
+        this.nbrVictory = nbrVictory;
+        this.nbrLoss = nbrLoss;
+        this.ranking = ranking;
+        this.handPreference = handPreference;
+    }
+
+    public Player(String playerFirstName, String playerLastName, String nationality, int age, int ranking, boolean handPreference) {
+        this.playerFirstName = playerFirstName;
+        this.playerLastName = playerLastName;
+        this.nationality = nationality;
+        this.age = age;
+        this.ranking = ranking;
+        this.handPreference = handPreference;
+    }
 
     public String getPlayerFirstName() {
         return playerFirstName;
